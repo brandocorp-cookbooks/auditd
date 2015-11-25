@@ -4,7 +4,7 @@ maintainer_email 'you@example.com'
 license 'all_rights'
 description 'Installs/Configures auditd'
 long_description 'Installs/Configures auditd'
-version '0.1.0'
+version '0.1.1'
 
 %w(centos debian redhat ubuntu).each do |os|
   supports os
