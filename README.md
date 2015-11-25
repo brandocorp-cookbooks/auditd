@@ -215,7 +215,7 @@ This resource is used to define cumulative rulesets across a `chef-client` run.
 
 ### `auditd_rules`
 
-This resource writes the collective rulesets defined across all `auditd_ruleset` resources to the specified rules file.
+This resource writes the collective rulesets defined across all `auditd_ruleset` resources to the specified rules file. If the rules have been updated, this resource will trigger a `reload` of the auditd service.
 
 #### Actions
 

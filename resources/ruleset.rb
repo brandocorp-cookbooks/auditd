@@ -3,6 +3,8 @@ resource_name :auditd_ruleset
 property :rules, Array, default: []
 property :comment, String, default: nil
 
+default_action :include
+
 action :include do
   check_run_state
   Chef::Log.debug "before: #{rulesets}"
@@ -16,7 +18,7 @@ action :include do
 end
 
 def include_rules
-  rulesets["#{name}"] = Mash.new({
+  rulesets[name] = Mash.new({
     comment: comment,
     rules: rules
   })
