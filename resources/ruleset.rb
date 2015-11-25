@@ -16,7 +16,7 @@ action :include do
 end
 
 def include_rules
-  rulesets["#{name}"] = ::Chef::Mash.new({
+  rulesets["#{name}"] = Mash.new({
     comment: comment,
     rules: rules
   })
@@ -38,8 +38,10 @@ def has_rules?
   true
 end
 
+def current_rules
+  ::File.open('/etc/audit/audit.rules').readlines.map(&:strip)
+end
+
 def existing_rule?(text)
-  file = Chef::Util::FileEdit.new('/etc/audit/audit.rules')
-  file.search_file_delete_line(/#{Regexp.escape(text)}/)
-  file.unwritten_changes?
+  current_rules.include? text
 end
