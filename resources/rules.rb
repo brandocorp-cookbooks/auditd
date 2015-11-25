@@ -8,6 +8,8 @@ property :rulesets,
   Array,
   default: {}
 
+default_action :write
+
 action :write do
   service 'auditd' do
     supports [:reload, :restart, :status]

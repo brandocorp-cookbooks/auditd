@@ -219,6 +219,8 @@ property :krb5_key_file,
   String,
   default: nil
 
+default_action :write
+
 action :write do
   template path do
     source 'auditd.conf.erb'
