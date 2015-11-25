@@ -165,7 +165,7 @@ Installs the auditd package and starts, enables the auditd service.
   <tr>
     <td><code>:enable_krb5</code></td>
     <td>Determines if Kerberos 5 will be used for authentication and encryption</td>
-    <td><code></code></td>
+    <td><code>no</code></td>
   </tr>
   <tr>
     <td><code>:krb5_principal</code></td>
@@ -205,7 +205,7 @@ This resource is used to define cumulative rulesets across a `chef-client` run.
   </tr>
   <tr>
     <td><code>:rules</code></td>
-    <td>An `Array` of `String` objects representing rules to add</td>
+    <td>An <code>Array</code> of <code>String</code> objects representing rules to add</td>
     <td><code>[]</code></td>
   </tr>
 </table>
