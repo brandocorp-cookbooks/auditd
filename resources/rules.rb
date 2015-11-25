@@ -9,6 +9,11 @@ property :rulesets,
   default: {}
 
 action :write do
+  service 'auditd' do
+    supports [:reload, :restart, :status]
+    action :nothing
+  end
+
   template path do
     source 'audit.rules.erb'
     cookbook 'auditd'
@@ -16,5 +21,6 @@ action :write do
     group 'root'
     mode '0640'
     variables lazy { {rulesets: auditd_rulesets} }
+    notifies :reload, 'service[auditd]', :delayed
   end
 end
