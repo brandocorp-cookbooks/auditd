@@ -1,0 +1,20 @@
+---
+driver:
+  name: vagrant
+  network:
+    - ["private_network", {type: "dhcp"}]
+
+provisioner:
+  name: chef_zero
+  cookbooks_path: test/fixtures/cookbooks
+
+platforms:
+  - name: ubuntu-14.04
+  - name: centos-7.1
+  - name: debian-8.1
+
+suites:
+  - name: default
+    run_list:
+      - recipe[auditd_example::default]
+    attributes:
