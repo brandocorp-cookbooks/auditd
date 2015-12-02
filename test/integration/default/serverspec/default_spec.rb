@@ -23,8 +23,8 @@ describe 'auditd::default' do
     it { is_expected.to be_mode 640 }
     it { is_expected.to be_owned_by 'root' }
     its(:content) { is_expected.to match '# First rule - delete all' }
-    its(:content) { is_expected.to match /^\-D$/ }
-    its(:content) { is_expected.to match /# Increase the buffers to survive/ }
-    its(:content) { is_expected.to match /^\-b 320$/ }
+    its(:content) { is_expected.to match(/^\-D$/) }
+    its(:content) { is_expected.to match '# Increase the buffers to survive' }
+    its(:content) { is_expected.to match(/^\-b 320$/) }
   end
 end

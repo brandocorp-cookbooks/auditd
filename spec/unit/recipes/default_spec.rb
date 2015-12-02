@@ -9,7 +9,7 @@ require 'spec_helper'
 describe 'auditd::default' do
   context 'When all attributes are default, on a debian-family system' do
     let(:chef_run) do
-      ChefSpec::ServerRunner.new do |node,server|
+      ChefSpec::ServerRunner.new do |node, _|
         node.automatic['platform_family'] = 'debian'
       end.converge(described_recipe)
     end
@@ -26,7 +26,7 @@ describe 'auditd::default' do
 
   context 'When all attributes are default on a rhel-family system' do
     let(:chef_run) do
-      ChefSpec::ServerRunner.new do |node,server|
+      ChefSpec::ServerRunner.new do |node, _|
         node.automatic['platform_family'] = 'rhel'
       end.converge(described_recipe)
     end
